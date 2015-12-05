@@ -1,0 +1,16 @@
+-# This file is app/views/movies/find_similar_movies.html.haml
+%h1 Similiar Movies for #{@movie.title}
+
+%tables#movies
+  %thead
+    %tr
+      %th{:class => @title_header} Similar Movies
+  %tbody
+    - @movies.each do |movie|
+      %tr
+        %td= movie.title
+        %td= movie.rating
+        %td= movie.release_date
+        %td= movie.director
+        %td= link_to "More about #{movie.title}", movie_path(movie)
+      
